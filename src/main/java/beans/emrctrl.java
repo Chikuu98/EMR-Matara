@@ -20,6 +20,8 @@ public class emrctrl implements Serializable {
     private Integer admitions =100 ;
     private Integer discharges =20 ;
     private Integer total ;
+    private Integer icubeds=35 ;
+    private Integer icuP;
     
     public emrctrl() {
         
@@ -57,5 +59,29 @@ public class emrctrl implements Serializable {
     public void setTotal(Integer total) {
         this.total = total;
     }
-    
+
+    public Integer getIcubeds() {
+        return icubeds;
+    }
+
+    public void setIcubeds(Integer icubeds) {
+        this.icubeds = icubeds;
+    }
+    public void icuin(){
+        icubeds--;
+    }
+    public void icuout(){
+        icubeds++;
+    }
+
+    public Integer getIcuP() {
+        return icuP;
+    }
+
+    public void setIcuP(Integer icuP) {
+        this.icuP = icuP;
+    }
+    public void icup(){
+    icuP = 35-icubeds;
+    }
 }

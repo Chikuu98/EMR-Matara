@@ -8,10 +8,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
         </link>
     </h:head>
-    <h:body style="padding: 4%; background-color:#D4E6F1;">
-
-        
-        
+    <h:body style="padding: 3%; background-color:#D4E6F1;">
         <div class="row text-center text-secondary bg-light" >
             <div class="col-m4 " >
                 <h1>EMR</h1>
@@ -20,7 +17,6 @@
                 <h2>District General Hospital Matara - Matara, Sri Lanka</h2>
             </div>
         </div>
-        <br></br><br></br>
         
         <hr size="6" width="100%" color="secondary"></hr>
 
@@ -31,10 +27,17 @@
                         Number of Admissions
                     </div>
                     <div class="card-body text-danger text-center font-weight-bold">
-                        <h1>#{emrctrl.admitions}</h1>
-                         <h:form>
-                             <h:commandButton value="Admit" class="btn btn-danger" action="#{emrctrl.admit()}"></h:commandButton>
-                             #{emrctrl.tot()}
+                        <h2>#{emrctrl.admitions}</h2>
+                         <h:form >
+                             <div class="row d-flex justify-content-center">
+                                <div class="col">
+                                    <h:commandButton value="Admit" class="btn btn-danger" action="#{emrctrl.admit()}"></h:commandButton>
+                                </div>
+                                <div class="col">
+                                    <h:commandButton value="ICU-IN" class="btn btn-danger" action="#{emrctrl.icuin()}"></h:commandButton>
+                                    #{emrctrl.tot()} #{emrctrl.icup()}
+                                </div>
+                            </div>
                         </h:form>
                     </div>
                     <div class="card-footer text-white text-center bg-danger" >
@@ -48,10 +51,17 @@
                         Number of Discharges
                     </div>
                     <div class="card-body  text-success text-center font-weight-bold" style="width: 30rem;">
-                        <h1>#{emrctrl.discharges}</h1>
+                        <h2>#{emrctrl.discharges}</h2>
                         <h:form>
-                            <h:commandButton value="Discharge" class="btn btn-success" action="#{emrctrl.discharge()}"></h:commandButton>
-                            #{emrctrl.tot()}
+                            <div class="row d-flex justify-content-center">
+                                <div class="col">
+                                    <h:commandButton value="Discharge" class="btn btn-success" action="#{emrctrl.discharge()}"></h:commandButton>
+                                    </div>
+                                <div class="col">
+                                    <h:commandButton value="ICU-OUT" class="btn btn-success" action="#{emrctrl.icuout()}"></h:commandButton>
+                                    #{emrctrl.tot()} #{emrctrl.icup()}
+                                    </div>
+                            </div>
                         </h:form>
                     </div>
                     <div class="card-footer text-white text-center bg-success" >
@@ -66,18 +76,16 @@
         <div class="row" >
          <div class="col d-flex justify-content-center" >
                 <div class="card p1 m1 " style="width: 30rem;">
-                    <div class="card-header text-center text-white bg-warning text-center" style="width: 30rem;" >
-                        Number of Patients
+                    <div class="card-header text-center text-dark bg-warning text-center" style="width: 30rem;" >
+                        Newest Update
                     </div>
-                    <div class="card-body  text-warning text-center font-weight-bold" >
-                        <h1>#{emrctrl.total}</h1>
-                         <h:form>
-                             <h2>Patients</h2>
-<!--                             <h:commandButton value="Refresh" class="btn btn-warning" action="#{emrctrl.tot()}"></h:commandButton>-->
-                        </h:form>
+                    <div class="card-body   text-center font-weight-bold" >
+                        <div class="text-warning"><h2>#{emrctrl.total} Patients</h2></div><br></br>
+                        <div class="text-danger"><h3>#{emrctrl.icuP} ICU Patients</h3></div><br></br>
+                        <div class="text-success"><h3>Available #{emrctrl.icubeds} ICU Beds</h3></div>
                     </div>
-                    <div class="card-footer text-center text-white bg-warning text-center" >
-                        Now in the hospital
+                    <div class="card-footer text-center text-dark bg-warning text-center" >
+                        In the hospital
                     </div>
                 </div>
             </div>
